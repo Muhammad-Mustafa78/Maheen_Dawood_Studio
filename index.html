@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Maheen_Dawood_Studio — Premium Clothing & Luxury Pret</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cur"></div>
+<div id="cur-ring"></div>
+<div id="cur-text"></div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-icon">✓</span>
+  <span id="toast-msg">Added to cart</span>
+</div>
+
+<!-- BACK TO TOP -->
+<button class="back-top" id="backTop">↑</button>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-head">
+    <span class="mobile-menu-logo">Maheen_Dawood_Studio</span>
+    <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
+  </div>
+<a href="" class="mobile-nav-link">Special Prices</a>
+  <a href="" class="mobile-nav-link">New Arrivals</a>
+  <a href="" class="mobile-nav-link" onclick="closeMobileMenu()">Luxury Pret</a>
+  <a href="#" class="mobile-nav-link" onclick="closeMobileMenu()">Basics</a>
+  <a href="#" class="mobile-nav-link" onclick="closeMobileMenu()">Velvets</a>
+  <a href="#" class="mobile-nav-link" onclick="closeMobileMenu()">About Us</a>
+  <a href="#" class="mobile-nav-link" onclick="closeMobileMenu()">Contact</a>
+</div>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay">
+  <button class="search-close" onclick="closeSearch()">✕</button>
+  <div class="search-form">
+    <label class="search-label">Search</label>
+    <div class="search-input-wrap">
+      <input class="search-input" id="searchInput" placeholder="Search products..." autocomplete="off">
+      <button class="search-btn" onclick="runSearch()">→</button>
+    </div>
+    <div class="search-suggestions">
+      <div class="search-suggestions-label">Popular Searches</div>
+      <div class="search-tags">
+        <button class="search-tag" onclick="fillSearch('Luxury Pret')">Luxury Pret</button>
+        <button class="search-tag" onclick="fillSearch('Velvet')">Velvet</button>
+        <button class="search-tag" onclick="fillSearch('Eid Collection')">Eid Collection</button>
+        <button class="search-tag" onclick="fillSearch('Basics')">Basics</button>
+        <button class="search-tag" onclick="fillSearch('Embroidered')">Embroidered</button>
+        <button class="search-tag" onclick="fillSearch('Black')">Black</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <span class="cart-head-title">Your Cart (<span id="cartCount">0</span>)</span>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="cart-empty-icon">🛍</div>
+      <p>Your cart is empty</p>
+      <button class="btn-black" onclick="closeCart()" style="width:auto;padding:.75rem 1.75rem">Continue Shopping</button>
+    </div>
+    <div id="cartItems"></div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-subtotal">
+      <span class="cart-subtotal-label">Subtotal</span>
+      <span class="cart-subtotal-val" id="cartTotal">Rs. 0</span>
+    </div>
+    <div class="cart-note">Taxes & shipping calculated at checkout. Shipping Worldwide 🌏</div>
+<button class="btn-checkout" onclick="window.location.href='checkout.html'">Proceed to Checkout</button>
+    <button class="btn-continue" onclick="closeCart()">Continue Shopping</button>
+  </div>
+</div>
+
+<!-- WISHLIST DRAWER -->
+<div class="wishlist-drawer" id="wishlistDrawer">
+  <div class="cart-head">
+    <span class="cart-head-title">Wishlist (<span id="wishCount">0</span>)</span>
+    <button class="cart-close" onclick="closeWishlist()">✕</button>
+  </div>
+  <div class="cart-body" id="wishBody">
+    <div class="cart-empty">
+      <div class="cart-empty-icon">♡</div>
+      <p>Your wishlist is empty</p>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK VIEW MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="quick-view" id="quickView" onclick="event.stopPropagation()">
+    <button class="quick-view-close" onclick="closeQuickView()">✕</button>
+    <div class="quick-view-img"><img id="qvImg" src="" alt=""></div>
+    <div class="quick-view-info">
+      <div class="qv-label" id="qvLabel"></div>
+      <div class="qv-name" id="qvName"></div>
+      <div class="qv-price" id="qvPrice"></div>
+      <div class="qv-section-label">Select Size</div>
+      <div class="size-grid">
+        <button class="size-btn" onclick="selectSize(this)">XS</button>
+        <button class="size-btn" onclick="selectSize(this)">S</button>
+        <button class="size-btn active" onclick="selectSize(this)">M</button>
+        <button class="size-btn" onclick="selectSize(this)">L</button>
+        <button class="size-btn" onclick="selectSize(this)">XL</button>
+        <button class="size-btn soldout" onclick="selectSize(this)">XXL</button>
+      </div>
+      <div class="qv-desc">Crafted from the finest fabrics, this piece embodies the essence of Flairs Studio's commitment to elegance and detail. Perfect for festive occasions and formal gatherings.</div>
+      <div class="qv-actions">
+        <button class="btn-black" onclick="addToCartFromModal()">Add to Cart</button>
+        <button class="btn-outlined" onclick="addToWishlistFromModal()">♡ Save to Wishlist</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce-bar">
+  <div class="announce-scroll" id="announceTicker"></div>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-top">
+    <div style="display:flex;align-items:center;gap:1rem">
+      <button class="mobile-hamburger" id="hamburger" onclick="openMobileMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <a href="#" class="nav-logo">Maheen<span>_Dawood_Studio</span></a>
+    <div class="nav-icons">
+      <button class="nav-icon-btn" onclick="openSearch()" title="Search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <button class="nav-icon-btn" onclick="openWishlist()" title="Wishlist">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <div class="nav-badge" id="wishBadge">0</div>
+      </button>
+      <button class="nav-icon-btn" onclick="openCart()" title="Cart">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <div class="nav-badge" id="cartBadge">0</div>
+      </button>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Special Prices</a>
+    <a href="arrival.html">New Arrivals</a>
+    <a href="Luxury Pret.html">Luxury Pret</a>
+    <a href="basic.html">Basics</a>
+    <a href="velvet.html">Velvets</a>
+    <a href="collection.html">Collections</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO SPLIT -->
+<div class="hero" id="hero">
+  <div class="hero-panel">
+    <video autoplay muted loop playsinline>
+      <source src="https://cdn.shopify.com/videos/c/o/v/9d63258d89ad44558d0462c8ba9162f2.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay">
+      <div class="hero-panel-tag">New Collection · 2026</div>
+      <div class="hero-panel-title">The Eid Duo '26<br><em>Is Now Live</em></div>
+      <a href="#new-arrivals" class="hero-panel-cta">Shop Collection</a>
+    </div>
+  </div>
+  <div class="hero-panel">
+    <video autoplay muted loop playsinline>
+      <source src="https://cdn.shopify.com/videos/c/o/v/7723a6e3b7c846ff9e841401f73a21ab.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay">
+      <div class="hero-panel-tag">Basics · Everyday Essentials</div>
+      <div class="hero-panel-title">Meraki Basics '26<br><em>Effortless Everyday</em></div>
+      <a href="#" class="hero-panel-cta">Explore Basics</a>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES STRIP -->
+<div class="features-strip">
+  <div class="features-inner">
+    <div class="feat-item">
+      <div class="feat-icon">🌏</div>
+      <div><div class="feat-text-title">Worldwide Shipping</div><div class="feat-text-sub">Delivered to your door, anywhere</div></div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">✦</div>
+      <div><div class="feat-text-title">Premium Fabrics</div><div class="feat-text-sub">Finest materials, crafted with care</div></div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">↩</div>
+      <div><div class="feat-text-title">Easy Returns</div><div class="feat-text-sub">Hassle-free return policy</div></div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">🔒</div>
+      <div><div class="feat-text-title">Secure Checkout</div><div class="feat-text-sub">100% safe & encrypted payments</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<!-- NEW ARRIVALS -->
+<div class="new-arrivals" id="new-arrivals">
+  <div class="sec">
+    <div class="new-arrivals sec-head reveal">
+      <div>
+        <div class="sec-label">Latest Drop</div>
+        <div class="sec-title">New Arrivals</div>
+      </div>
+      <a href="#" class="view-all-link">View All</a>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+</div>
+
+<!-- BANNER FULL 1 -->
+<div class="banner-full reveal">
+  <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover">
+    <source src="https://cdn.shopify.com/videos/c/o/v/468007238bad4d7faf3275e9488d9702.mp4" type="video/mp4">
+  </video>
+  <div class="banner-full-overlay">
+    <div class="banner-tag">Ramadan Collection · 2026</div>
+    <div class="banner-title">Meraki Basics<br>Ramadan '26</div>
+    <div class="banner-sub">Graceful essentials for your most sacred days. Soft, breathable, and beautifully crafted.</div>
+    <div>
+      <a href="#" class="btn-white">Shop Now</a>
+      <a href="#" class="btn-outline-white">View Lookbook</a>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<div class="categories">
+  <div class="sec">
+    <div class="reveal" style="text-align:center;margin-bottom:2.5rem">
+      <div class="sec-label">Browse By Category</div>
+      <div class="sec-title">Our Collections</div>
+    </div>
+    <div class="cat-grid" id="catGrid"></div>
+  </div>
+</div>
+
+<!-- BASICS PRODUCT SECTION -->
+<div class="new-arrivals" style="background:var(--bg2)">
+  <div class="sec">
+    <div class="new-arrivals sec-head reveal">
+      <div>
+        <div class="sec-label">Everyday Comfort</div>
+        <div class="sec-title">Basics <em>Collection</em></div>
+      </div>
+      <a href="#" class="view-all-link">Shop All Basics</a>
+    </div>
+    <div class="product-grid" id="basicsGrid"></div>
+  </div>
+</div>
+
+<!-- LOOKBOOK -->
+<div class="lookbook">
+  <div class="sec">
+    <div class="reveal" style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2rem">
+      <div>
+        <div class="sec-label">Editorial</div>
+        <div class="sec-title">Featuring</div>
+      </div>
+      <a href="#" class="view-all-link">View All</a>
+    </div>
+    <div class="lookbook-grid" id="lookbookGrid"></div>
+  </div>
+</div>
+
+<!-- BANNER FULL 2 -->
+<div class="banner-full reveal" style="height:55vh">
+  <img src="https://flairsstudio.com/cdn/shop/files/DSC8797.jpg?v=1722258065" alt="Featured" style="width:100%;height:100%;object-fit:cover">
+  <div class="banner-full-overlay" style="background:linear-gradient(to right,rgba(26,23,20,.6) 0%,transparent 65%)">
+    <div class="banner-tag">Limited Edition</div>
+    <div class="banner-title">Mara Velvet<br>Luxe '25</div>
+    <div class="banner-sub">Opulent velvet pieces for the woman who commands attention in every room.</div>
+    <a href="#" class="btn-white">Shop Velvets</a>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testimonials">
+  <div class="sec">
+    <div class="reveal" style="text-align:center">
+      <div class="sec-label" style="color:rgba(255,255,255,.35)">Client Love</div>
+      <div class="sec-title" style="color:#fff">What Our Customers Say</div>
+    </div>
+    <div class="testimonial-grid" id="testGrid"></div>
+  </div>
+</div>
+
+<!-- INSTAGRAM -->
+<div class="instagram">
+  <div class="sec">
+    <div class="insta-head reveal">
+      <div class="sec-label">Follow Our Story</div>
+      <div class="sec-title"></div>
+      <div class="insta-handle">Follow us on Instagram for daily inspiration</div>
+    </div>
+    <div class="insta-grid" id="instaGrid"></div>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <div class="newsletter-inner reveal">
+    <div class="sec-label" style="text-align:center">Stay in the Know</div>
+    <div class="sec-title">Subscribe to New <em>Collections</em></div>
+    <div class="newsletter-sub">Sign up to receive exclusive early access, new collection alerts, and members-only offers directly in your inbox.</div>
+    <div class="newsletter-form">
+      <input type="email" id="emailInput" placeholder="Your email address">
+      <button onclick="handleSubscribe()">Subscribe</button>
+    </div>
+    <div class="policy-links">
+      <a href="#" class="policy-link">Privacy Policy</a>
+      <a href="#" class="policy-link">Return Policy</a>
+      <a href="#" class="policy-link">Shipping Policy</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo">Maheen_Dawood_Studio</span>
+        <span class="footer-tagline">Premium Clothing & Luxury Pret</span>
+        <p>A window for premium clothing and luxury pret. We craft pieces that celebrate femininity, elegance, and timeless style — shipped worldwide.</p>
+        <div class="footer-social">
+          <a href="#" class="footer-soc">in</a>
+          <a href="#" class="footer-soc">𝕏</a>
+          <a href="#" class="footer-soc">▶</a>
+          <a href="#" class="footer-soc">◎</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <ul>
+          <li><a href="#">Special Prices</a></li>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Luxury Pret</a></li>
+          <li><a href="#">Basics</a></li>
+          <li><a href="#">Velvets</a></li>
+          <li><a href="#">Eid Collections</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-bottom-left">© 2026 Flairs Studio · Powered by The BranPac</span>
+      <span class="footer-bottom-right">Crafted with care · Shipping Worldwide 🌏</span>
+    </div>
+  </div>
+</footer>
+<script src="flairs-cart.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Maheen Dawood Studio — New Arrivals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="arrival.css">
+</head>
+<body>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast"><span>✓</span><span id="toastMsg">Added to cart</span></div>
+
+<!-- Back to Top -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- Cart Overlay & Drawer -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-head"><span class="cart-head-title">Your Cart (<span id="cartCount">0</span>)</span><button class="cart-close" onclick="closeCart()">✕</button></div>
+  <div class="cart-body" id="cartBody"><div class="cart-empty">Your cart is empty</div><div id="cartItems"></div></div>
+  <div class="cart-footer" id="cartFooter" style="display:none"><div class="cart-subtotal"><span>Subtotal</span><span id="cartTotal">Rs. 0</span></div><button class="btn-checkout" onclick="showToast('Proceeding to checkout')">Checkout →</button></div>
+</div>
+
+<!-- Announcement Bar -->
+<div class="announce-bar"><div class="announce-scroll" id="announceTicker"></div></div>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-top">
+    <a href="#" class="nav-logo">Maheen Dawood Studio<span>Premium Clothing & Luxury Pret</span></a>
+    <div class="nav-icons">
+      <button class="nav-icon-btn" onclick="openCart()" title="Cart">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <div class="nav-badge" id="cartBadge">0</div>
+      </button>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" >Special Prices</a>
+<a href="#new-arrivals" style="color:var(--accent2)">New Arrivals</a><a href="Luxury Pret.html">Luxury Pret</a><a href="basic.html">Basics</a>      <a href="velvet.html">Velvets</a>   <a href="collection.html">Collection</a>
+</div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero">
+  <div class="hero-panel">
+    <video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/9d63258d89ad44558d0462c8ba9162f2.mp4" type="video/mp4"></video>
+    <div class="hero-overlay"><div class="hero-panel-tag">New Collection · 2026</div><div class="hero-panel-title">The Eid Duo '26<br><em>Is Now Live</em></div><a href="#new-arrivals" class="hero-panel-cta">Shop Collection</a></div>
+  </div>
+  <div class="hero-panel">
+    <video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/7723a6e3b7c846ff9e841401f73a21ab.mp4" type="video/mp4"></video>
+    <div class="hero-overlay"><div class="hero-panel-tag">Basics · Everyday Essentials</div><div class="hero-panel-title">Meraki Basics '26<br><em>Effortless Everyday</em></div><a href="#" class="hero-panel-cta">Explore Basics</a></div>
+  </div>
+</div>
+
+<!-- Features Strip -->
+<div class="features-strip">
+  <div class="features-inner">
+    <div class="feat-item"><div class="feat-icon">🌏</div><div><div class="feat-text-title">Worldwide Shipping</div><div class="feat-text-sub">Delivered to your door, anywhere</div></div></div>
+    <div class="feat-item"><div class="feat-icon">✦</div><div><div class="feat-text-title">Premium Fabrics</div><div class="feat-text-sub">Finest materials, crafted with care</div></div></div>
+    <div class="feat-item"><div class="feat-icon">↩</div><div><div class="feat-text-title">Easy Returns</div><div class="feat-text-sub">Hassle-free return policy</div></div></div>
+    <div class="feat-item"><div class="feat-icon">🔒</div><div><div class="feat-text-title">Secure Checkout</div><div class="feat-text-sub">100% safe & encrypted payments</div></div></div>
+  </div>
+</div>
+
+<!-- ========== NEW ARRIVALS SECTION ========== -->
+<section id="new-arrivals" class="section">
+  <div class="sec">
+    <div class="section-head reveal">
+      <div>
+        <div class="sec-label">Latest Drop</div>
+        <div class="sec-title">New <em>Arrivals</em></div>
+      </div>
+      <a href="#" class="view-all-link">View All →</a>
+    </div>
+    <div class="product-grid" id="newArrivalsGrid"></div>
+  </div>
+</section>
+
+<script src="arrival.js"></script>
+<script src="flairs-cart.js"></script>
+</body>
+</html>

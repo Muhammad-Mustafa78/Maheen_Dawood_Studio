@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>About — Flairs Studio | Premium Clothing & Luxury Pret</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="about.css">
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Progress Scroll Indicator (Bottom Right) -->
+<div class="progress-indicator" id="progressIndicator">
+  <div class="progress-percent" id="progressPercent">0%</div>
+  <div class="progress-ring">
+    <svg width="48" height="48" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="3" class="progress-bg" fill="none"/>
+      <circle cx="24" cy="24" r="18" stroke="var(--gold)" stroke-width="3" fill="none" stroke-linecap="round" class="progress-fill" id="progressFill"/>
+    </svg>
+  </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast">
+  <span class="toast-icon">✓</span>
+  <span id="toastMsg">Added to cart</span>
+</div>
+
+<!-- Back to Top -->
+<button class="back-top" id="backTop">↑</button>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-head">
+    <span class="mobile-menu-logo">Flairs Studio</span>
+    <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
+  </div>
+  <a href="#home" class="mobile-nav-link" onclick="closeMobileMenu()">Home</a>
+  <a href="#story" class="mobile-nav-link" onclick="closeMobileMenu()">Our Story</a>
+  <a href="#values" class="mobile-nav-link" onclick="closeMobileMenu()">Values</a>
+  <a href="#journey" class="mobile-nav-link" onclick="closeMobileMenu()">Journey</a>
+  <a href="#team" class="mobile-nav-link" onclick="closeMobileMenu()">Team</a>
+</div>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay">
+  <button class="search-close" onclick="closeSearch()">✕</button>
+  <div class="search-form">
+    <label class="search-label">Search</label>
+    <div class="search-input-wrap">
+      <input class="search-input" id="searchInput" placeholder="Search products..." autocomplete="off">
+      <button class="search-btn" onclick="runSearch()">→</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Announcement Bar -->
+<div class="announce-bar">
+  <div class="announce-scroll" id="announceTicker"></div>
+</div>
+
+<!-- Navigation -->
+<nav id="mainNav">
+  <div class="nav-top">
+    <button class="mobile-hamburger" id="hamburger" onclick="openMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="#" class="nav-logo">Maheen_Dawood_Studio<span>Premium Clothing & Luxury Pret</span></a>
+    <div class="nav-icons">
+      <button class="nav-icon-btn" onclick="openSearch()" title="Search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+      <button class="nav-icon-btn" onclick="openWishlist()" title="Wishlist">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        <div class="nav-badge" id="wishBadge">0</div>
+      </button>
+      <button class="nav-icon-btn" onclick="openCart()" title="Cart">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <div class="nav-badge" id="cartBadge">0</div>
+      </button>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Special Prices</a>
+    <a href="arrival.html">New Arrivals</a>
+    <a href="Luxury Pret.html">Luxury Pret</a>
+    <a href="basic.html">Basics</a>
+    <a href="velvet.html">Velvets</a>
+    <a href="collection.html">Collections</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- ==================== HERO SECTION ==================== -->
+<section id="home" class="hero-section">
+  <div class="hero-content">
+    <div class="hero-badge">Since 2020</div>
+    <h1 class="hero-title">Where Elegance<br><span>Meets Craftsmanship</span></h1>
+    <p class="hero-subtitle">A window for premium clothing and luxury pret, crafted with love and shipped worldwide.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="hero-stat-num">2020</span><span class="hero-stat-label">Founded</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">10K+</span><span class="hero-stat-label">Clients</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">60+</span><span class="hero-stat-label">Countries</span></div>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="images/Untitled design (7).png" alt="Flairs Studio">
+  </div>
+</section>
+
+<!-- ==================== TEXT ROLL NAVIGATION SECTION ==================== -->
+<section class="text-roll-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="sec-label">Explore</div>
+      <h2 class="sec-title">Our <em>World</em></h2>
+    </div>
+    <ul class="text-roll-nav" id="textRollNav">
+      <li class="text-roll-item" data-href="#story">
+        <div class="text-roll">
+          <span class="text-roll-top">Our Story</span>
+          <span class="text-roll-bottom">Our Story</span>
+        </div>
+        <span class="text-roll-desc">[01]</span>
+      </li>
+      <li class="text-roll-item" data-href="#values">
+        <div class="text-roll">
+          <span class="text-roll-top">Core Values</span>
+          <span class="text-roll-bottom">Core Values</span>
+        </div>
+        <span class="text-roll-desc">[02]</span>
+      </li>
+      <li class="text-roll-item" data-href="#journey">
+        <div class="text-roll">
+          <span class="text-roll-top">Our Journey</span>
+          <span class="text-roll-bottom">Our Journey</span>
+        </div>
+        <span class="text-roll-desc">[03]</span>
+      </li>
+      <li class="text-roll-item" data-href="#team">
+        <div class="text-roll">
+          <span class="text-roll-top">Meet the Team</span>
+          <span class="text-roll-bottom">Meet the Team</span>
+        </div>
+        <span class="text-roll-desc">[04]</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== OUR STORY SECTION ==================== -->
+<section id="story" class="story-section">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-content">
+        <div class="sec-label">Our Heritage</div>
+        <h2 class="sec-title">The <em>Flairs</em> Story</h2>
+        <p>Flairs Studio was born from a desire to create clothing that transcends seasons and trends. What started as a small atelier in Lahore has grown into a beloved destination for women who seek elegance, quality, and timeless design.</p>
+        <p>Every piece in our collection is a testament to our commitment to excellence — from the initial sketch to the final stitch. We collaborate with master artisans who bring generations of embroidery knowledge, ensuring each garment carries a piece of heritage.</p>
+        <div class="signature">
+          <span class="signature-name">Amina Khan</span>
+          <span class="signature-title">Founder & Creative Director</span>
+        </div>
+      </div>
+      <div class="story-image">
+        <img src="images/img11.jpeg" alt="Founder">
+        <div class="story-image-caption">Amina in the atelier</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SCROLL PROGRESS SECTION (Line Path Animation) ==================== -->
+<section id="journey" class="scroll-progress-section">
+  <div class="scroll-progress-container" id="scrollProgressContainer">
+    <div class="scroll-progress-content">
+      <h1 class="scroll-title">The Stroke <br>That Follows the <br>Scroll Progress</h1>
+      <p class="scroll-subtitle">Scroll down to see the effect</p>
+      <svg class="scroll-line-svg" width="400" height="800" viewBox="0 0 400 800" fill="none">
+        <path class="scroll-line-path" d="M200 0 L200 200 C200 300 150 350 150 400 C150 450 250 500 250 600 C250 700 200 750 200 800" stroke="var(--gold)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="scroll-bottom-content">
+      <h1 class="bottom-title">Flairs Studio</h1>
+      <div class="bottom-info">
+        <div class="bottom-info-left">
+          <p>Lahore, Pakistan<br>And Worldwide</p>
+        </div>
+        <div class="bottom-info-right">
+          <p>Est. 2020<br>The Art of Luxury</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== VALUES SECTION ==================== -->
+<section id="values" class="values-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="sec-label">What We Stand For</div>
+      <h2 class="sec-title">Our Core <em>Values</em></h2>
+      <p>The principles that guide everything we do</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-number">01</div>
+        <h3>Authenticity</h3>
+        <p>We stay true to our craft, creating pieces that are honest, transparent, and deeply connected to our heritage.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">02</div>
+        <h3>Empowerment</h3>
+        <p>We design for the modern woman — confident, independent, and unapologetically herself.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">03</div>
+        <h3>Excellence</h3>
+        <p>From fabric selection to final packaging, we pursue perfection in every detail.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">04</div>
+        <h3>Sustainability</h3>
+        <p>Committed to ethical production, zero-waste cutting, and eco-friendly packaging.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CRAFTSMANSHIP GRID ==================== -->
+<section class="craftsmanship-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="sec-label">Our Expertise</div>
+      <h2 class="sec-title">What Makes Us <em>Different</em></h2>
+    </div>
+    <div class="craftsmanship-grid">
+      <div class="craft-card">
+        <div class="craft-icon">✧</div>
+        <h3>Hand-Embroidered</h3>
+        <p>Each embroidery is meticulously crafted by master artisans, with techniques passed down through generations.</p>
+      </div>
+      <div class="craft-card">
+        <div class="craft-icon">✦</div>
+        <h3>Premium Fabrics</h3>
+        <p>We source only the finest materials — from Italian velvet to organic cotton and pure raw silk.</p>
+      </div>
+      <div class="craft-card">
+        <div class="craft-icon">❀</div>
+        <h3>Ethical Production</h3>
+        <p>Fair wages, safe working conditions, and respect for every artisan who brings our vision to life.</p>
+      </div>
+      <div class="craft-card">
+        <div class="craft-icon">⚘</div>
+        <h3>Quality Assurance</h3>
+        <p>Every garment undergoes rigorous quality checks before it reaches your doorstep.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TEAM SECTION ==================== -->
+<section id="team" class="team-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="sec-label">The Faces Behind Flairs</div>
+      <h2 class="sec-title">Meet Our <em>Team</em></h2>
+      <p>Dedicated artisans, designers, and dreamers who bring your vision to life.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-image"><img src="images/basic3.jpeg" alt="Amina Khan"></div>
+        <h3>Amina Khan</h3>
+        <span class="team-role">Founder & Creative Director</span>
+        <p>The visionary behind Flairs Studio, blending tradition with contemporary elegance.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-image"><img src="images/img13.jpeg" alt="Sarah Ahmed"></div>
+        <h3>Sarah Ahmed</h3>
+        <span class="team-role">Head of Design</span>
+        <p>Leading our design team with a keen eye for detail and passion for textiles.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-image"><img src="images/basic6.jpeg" alt="Fatima Raza"></div>
+        <h3>Fatima Raza</h3>
+        <span class="team-role">Master Artisan</span>
+        <p>With 25 years of embroidery expertise, Fatima brings our designs to life.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-image"><img src="images/luxury2.jpeg" alt="Omar Malik"></div>
+        <h3>Omar Malik</h3>
+        <span class="team-role">Operations Director</span>
+        <p>Ensuring every order reaches you seamlessly, anywhere in the world.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== STATS COUNTERS ==================== -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-number" data-count="10000">0</div><div class="stat-label">Happy Clients</div></div>
+      <div class="stat-card"><div class="stat-number" data-count="60">0</div><div class="stat-label">Countries Served</div></div>
+      <div class="stat-card"><div class="stat-number" data-count="200">0</div><div class="stat-label">Signature Pieces</div></div>
+      <div class="stat-card"><div class="stat-number" data-count="100">0</div><div class="stat-label">Artisans Employed</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== NEWSLETTER ==================== -->
+<section class="newsletter-section">
+  <div class="newsletter-inner">
+    <div class="sec-label text-center">Stay in the Know</div>
+    <div class="sec-title text-center">Subscribe to New <em>Collections</em></div>
+    <div class="newsletter-sub">Sign up for exclusive early access, new collection alerts, and members-only offers.</div>
+    <div class="newsletter-form">
+      <input type="email" id="emailInput" placeholder="Your email address">
+      <button onclick="handleSubscribe()">Subscribe</button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo">Flairs Studio</span>
+        <span class="footer-tagline">Premium Clothing & Luxury Pret</span>
+        <p>A window for premium clothing and luxury pret. We craft pieces that celebrate femininity, elegance, and timeless style — shipped worldwide.</p>
+        <div class="footer-social"><a href="#" class="footer-soc">in</a><a href="#" class="footer-soc">𝕏</a><a href="#" class="footer-soc">▶</a><a href="#" class="footer-soc">◎</a></div>
+      </div>
+      <div class="footer-col"><h4>Collections</h4><ul><li><a href="#">New Arrivals</a></li><li><a href="#">Luxury Pret</a></li><li><a href="#">Basics</a></li><li><a href="#">Velvets</a></li></ul></div>
+      <div class="footer-col"><h4>Help</h4><ul><li><a href="#">About Us</a></li><li><a href="#">Size Guide</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Track Order</a></li></ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">Return Policy</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Shipping Policy</a></li><li><a href="#">Terms of Service</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span class="footer-bottom-left">© 2026 Flairs Studio</span><span class="footer-bottom-right">Crafted with care · Shipping Worldwide 🌏</span></div>
+  </div>
+</footer>
+
+<script src="about.js"></script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>FlairStudio | Contact Us</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo">Maheen_<span>Dawood_Studio</span></div>
+      <div class="preloader-bar">
+        <div class="preloader-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="logo">
+        Maheen_<span>Dawood</span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link" data-text="HOME">HOME</a>
+        <a href="arrival.html" class="nav-link" data-text="New Arrivals">New Arrivals</a>
+        <a href="Luxury Pret.html" class="nav-link" data-text="Luxury-Pret">Luxury-Pret</a>
+        <a href="basic.html" class="nav-link" data-text="Basic">Basic</a>
+        <a href="velvet.html" class="nav-link " data-text="Velvet">Velvet</a>
+        <a href="collection.html" class="nav-link " data-text="Collection">Collection</a>
+        <a href="about.html" class="nav-link " data-text="About">About</a>
+         <a href="contact.html" class="nav-link " data-text="CONTACT">CONTACT</a>
+      </div>
+     
+      
+    </div>
+  </nav>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Shopping Cart</h3>
+      <button class="cart-close">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">Your cart is empty</div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: <span id="cartTotal">$0</span></div>
+      <button class="checkout-btn">CHECKOUT</button>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content" data-aos="fade-up">
+      <h1>Contact <span>Us</span></h1>
+      <p>Get in touch with our team for inquiries, collaborations, or just to say hello.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        
+        <!-- Contact Info Cards -->
+        <div class="contact-info" data-aos="fade-right">
+          <div class="section-tag">GET IN TOUCH</div>
+          <h2>Let's Connect</h2>
+          <p class="contact-desc">We'd love to hear from you. Whether you have a question about our collections, need styling advice, or want to discuss a collaboration — our team is here to help.</p>
+          
+          <div class="info-cards">
+            <!-- Email Card -->
+            <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="info-content">
+                <h3>Email Us</h3>
+                <a href="mailto:hello@flairstudio.com">hello@flairstudio.com</a>
+                <a href="mailto:support@flairstudio.com">support@flairstudio.com</a>
+              </div>
+            </div>
+            
+            <!-- WhatsApp Card -->
+            <div class="info-card" data-aos="fade-up" data-aos-delay="150">
+              <div class="info-icon">
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <div class="info-content">
+                <h3>WhatsApp</h3>
+                <a href="https://wa.me/441234567890" target="_blank">+44 1234 567890</a>
+                <span>Monday - Friday, 9am - 6pm</span>
+              </div>
+            </div>
+            
+            <!-- Instagram Card -->
+            <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="info-icon">
+                <i class="fab fa-instagram"></i>
+              </div>
+              <div class="info-content">
+                <h3>Instagram</h3>
+                <a href="https://instagram.com/flairstudio" target="_blank">@flairstudio</a>
+                <span>Follow us for daily inspiration</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Office Hours -->
+          <div class="office-hours" data-aos="fade-up" data-aos-delay="250">
+            <h3>Studio Hours</h3>
+            <div class="hours-list">
+              <div><span>Monday - Friday:</span><span>9:00 AM - 6:00 PM</span></div>
+              <div><span>Saturday:</span><span>10:00 AM - 4:00 PM</span></div>
+              <div><span>Sunday:</span><span>Closed</span></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper" data-aos="fade-left">
+          <div class="form-container">
+            <h3>Send Us a Message</h3>
+            <form id="contactForm" class="contact-form">
+              <div class="input-group">
+                <input type="text" id="name" required>
+                <label>Your Name *</label>
+                <span class="focus-border"></span>
+              </div>
+              <div class="input-group">
+                <input type="email" id="email" required>
+                <label>Email Address *</label>
+                <span class="focus-border"></span>
+              </div>
+              <div class="input-group">
+                <input type="tel" id="phone">
+                <label>Phone Number</label>
+                <span class="focus-border"></span>
+              </div>
+              <div class="input-group">
+                <select id="subject" required>
+                  <option value="" disabled selected></option>
+                  <option value="General Inquiry">General Inquiry</option>
+                  <option value="Order Support">Order Support</option>
+                  <option value="Collaboration">Collaboration</option>
+                  <option value="Press & Media">Press & Media</option>
+                  <option value="Other">Other</option>
+                </select>
+                <label>Subject *</label>
+                <span class="focus-border"></span>
+              </div>
+              <div class="input-group">
+                <textarea id="message" rows="5" required></textarea>
+                <label>Message *</label>
+                <span class="focus-border"></span>
+              </div>
+              <button type="submit" class="submit-btn">
+                <span>SEND MESSAGE</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+              <div id="formFeedback" class="form-feedback"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Map Section -->
+  <section class="map-section">
+    <div class="container" data-aos="fade-up">
+      <div class="section-tag">VISIT US</div>
+      <h2>Our <span>Location</span></h2>
+      <p class="map-desc">Visit our flagship studio in the heart of London.</p>
+    </div>
+    <div class="map-wrapper" data-aos="zoom-in">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.046114893786!2d-0.1432586842285269!3d51.5098457796355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604c7c7e60a73%3A0x66b5f89b6e43f88b!2sOxford%20Street%2C%20London%2C%20UK!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
+        width="100%" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <div class="map-address">
+        <i class="fas fa-map-pin"></i>
+        <span>FlairStudio, Oxford Street, London, United Kingdom</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media Links Section -->
+  <section class="social-section">
+    <div class="container" data-aos="fade-up">
+      <div class="section-tag">FOLLOW US</div>
+      <h2>Connect on <span>Social Media</span></h2>
+      <p class="social-desc">Join our community of fashion lovers and stay updated with our latest collections.</p>
+    </div>
+    <div class="social-grid">
+      <a href="https://instagram.com/flairstudio" class="social-card" data-aos="flip-left" data-aos-delay="0" target="_blank">
+        <div class="social-icon">
+          <i class="fab fa-instagram"></i>
+        </div>
+        <h3>Instagram</h3>
+        <p>@flairstudio</p>
+        <span class="social-follow">Follow →</span>
+      </a>
+      <a href="https://facebook.com/flairstudio" class="social-card" data-aos="flip-left" data-aos-delay="100" target="_blank">
+        <div class="social-icon">
+          <i class="fab fa-facebook-f"></i>
+        </div>
+        <h3>Facebook</h3>
+        <p>FlairStudio</p>
+        <span class="social-follow">Like →</span>
+      </a>
+      <a href="https://pinterest.com/flairstudio" class="social-card" data-aos="flip-left" data-aos-delay="200" target="_blank">
+        <div class="social-icon">
+          <i class="fab fa-pinterest"></i>
+        </div>
+        <h3>Pinterest</h3>
+        <p>@flairstudio</p>
+        <span class="social-follow">Pin →</span>
+      </a>
+      <a href="https://twitter.com/flairstudio" class="social-card" data-aos="flip-left" data-aos-delay="300" target="_blank">
+        <div class="social-icon">
+          <i class="fab fa-twitter"></i>
+        </div>
+        <h3>Twitter</h3>
+        <p>@flairstudio</p>
+        <span class="social-follow">Tweet →</span>
+      </a>
+      <a href="https://youtube.com/flairstudio" class="social-card" data-aos="flip-left" data-aos-delay="400" target="_blank">
+        <div class="social-icon">
+          <i class="fab fa-youtube"></i>
+        </div>
+        <h3>YouTube</h3>
+        <p>FlairStudio</p>
+        <span class="social-follow">Subscribe →</span>
+      </a>
+      <a href="https://wa.me/441234567890" class="social-card" data-aos="flip-left" data-aos-delay="500" target="_blank">
+        <div class="social-icon">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+        <h3>WhatsApp</h3>
+        <p>+44 1234 567890</p>
+        <span class="social-follow">Chat →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container" data-aos="fade-up">
+      <div class="section-tag">FAQ</div>
+      <h2>Frequently Asked <span>Questions</span></h2>
+      <div class="faq-grid">
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="0">
+          <div class="faq-question">
+            <span>How can I track my order?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Once your order is shipped, you'll receive a tracking number via email. You can use this number on our website or the courier's website to track your delivery status.</p>
+          </div>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="faq-question">
+            <span>Do you offer international shipping?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, we ship worldwide! Shipping costs and delivery times vary by location. You can calculate shipping at checkout.</p>
+          </div>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="faq-question">
+            <span>What is your return policy?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We offer 14-day returns on unused items in original condition. Please contact our support team to initiate a return.</p>
+          </div>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="faq-question">
+            <span>Can I visit your physical store?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, our flagship studio is located on Oxford Street, London. We welcome visitors Monday through Saturday. Appointments are recommended for private consultations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter-section">
+    <div class="newsletter-content" data-aos="fade-up">
+      <h3>Join the <span>FlairStudio</span> Community</h3>
+      <p>Be the first to know about new arrivals, exclusive offers, and studio updates.</p>
+      <form id="newsletter-form" class="newsletter-form">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">SUBSCRIBE</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <div class="footer-logo">FLair<span>Studio</span></div>
+        <p>Premium collection where creativity meets elegance. Established 2024.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>EXPLORE</h4>
+        <a href="index.html">Home</a>
+        <a href="index.html#collection">Collection</a>
+        <a href="index.html#lookbook">Lookbook</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>SUPPORT</h4>
+        <a href="contact.html">Contact Us</a>
+        <a href="#">Size Guide</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+      </div>
+      <div class="footer-col">
+        <h4>LEGAL</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 FlairStudio — All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="back-to-top" class="back-to-top">↑</button>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="contact.js"></script>
+</body>
+</html>

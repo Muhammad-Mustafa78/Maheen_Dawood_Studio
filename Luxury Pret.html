@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Maheen Dawood Studio — Luxury Pret Collection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Luxury_Pret.css">
+</head>
+<body>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast"><span>✓</span><span id="toastMsg">Added to cart</span></div>
+
+<!-- Back to Top -->
+<button class="back-top" id="backTop">↑</button>
+
+<!-- Cart Drawer -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-head"><span class="cart-head-title">Your Cart (<span id="cartCount">0</span>)</span><button class="cart-close" onclick="closeCart()">✕</button></div>
+  <div class="cart-body" id="cartBody"><div class="cart-empty">Your cart is empty</div><div id="cartItems"></div></div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-subtotal"><span>Subtotal</span><span id="cartTotal">Rs. 0</span></div>
+    <button class="btn-checkout" onclick="showToast('Proceeding to checkout')">Checkout →</button>
+  </div>
+</div>
+
+<!-- Quick View Modal -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="quick-view" id="quickView" onclick="event.stopPropagation()">
+    <button class="quick-view-close" onclick="closeQuickView()">✕</button>
+    <div class="quick-view-img"><img id="qvImg" src="" alt=""></div>
+    <div class="quick-view-info">
+      <div class="qv-category" id="qvCategory"></div>
+      <div class="qv-name" id="qvName"></div>
+      <div class="qv-price" id="qvPrice"></div>
+      <div class="qv-section-label">Select Size</div>
+      <div class="size-grid" id="sizeGrid">
+        <button class="size-btn" data-size="XS">XS</button>
+        <button class="size-btn" data-size="S">S</button>
+        <button class="size-btn active" data-size="M">M</button>
+        <button class="size-btn" data-size="L">L</button>
+        <button class="size-btn" data-size="XL">XL</button>
+        <button class="size-btn soldout" data-size="XXL">XXL</button>
+      </div>
+      <div class="qv-addon">
+        <label>Add On Dupatta: Rs.12,500</label>
+        <div class="addon-buttons"><button class="addon-btn no-addon active" data-addon="0">No</button><button class="addon-btn" data-addon="12500">Yes</button></div>
+      </div>
+      <div class="qv-fabric"><strong>Fabric:</strong> <span id="qvFabric">Velvet SHEESHA SILK</span></div>
+      <div class="qv-delivery">
+        <p><strong>Local delivery:</strong> 18–20 days</p>
+        <p><strong>International delivery:</strong> 18–22 days</p>
+      </div>
+      <div class="qv-desc" id="qvDesc"></div>
+      <div class="qv-actions">
+        <button class="btn-black" id="qvAddToCart">Add to Cart</button>
+        <button class="btn-outlined" id="qvWishlist">♡ Save to Wishlist</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Announcement Bar -->
+<div class="announce-bar"><div class="announce-scroll" id="announceTicker"></div></div>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-top">
+    <a href="#" class="nav-logo">Maheen_<span>Dawood_Studio</span></a>
+    <div class="nav-links">
+      <a href="index.html">Special Prices</a>
+      <a href="arrival.html">New Arrivals</a>
+      <a href="Luxury Pret.html" class="active">Luxury Pret</a>
+      <a href="basic.html">Basics</a>
+      <a href="velvet.html">Velvets</a>
+    <a href="#">Collections</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact</a>
+    </div>
+    <div class="nav-icons">
+      <button class="nav-icon-btn search-btn" onclick="alert('Search feature coming soon')">🔍</button>
+      <button class="nav-icon-btn" onclick="openCart()">🛒<span class="nav-badge" id="cartBadge">0</span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Banner -->
+<div class="luxury-hero">
+  <div class="luxury-hero-content">
+    <h1>Luxury Pret</h1>
+    <p>Exquisite craftsmanship meets contemporary elegance</p>
+  </div>
+</div>
+
+<!-- Filter Bar -->
+<div class="filter-bar">
+  <div class="filter-left"><span class="filter-label">Filter</span><span class="filter-active">Luxury Pret</span></div>
+  <div class="filter-right"><span>Sort by:</span><select id="sortSelect"><option value="default">Date, new to old</option><option value="price-low">Price: Low to High</option><option value="price-high">Price: High to Low</option></select></div>
+</div>
+
+<!-- Products Grid -->
+<div class="products-section">
+  <div class="products-grid" id="productsGrid"></div>
+</div>
+
+<!-- Newsletter & Footer -->
+<div class="newsletter-section">
+  <div class="newsletter-container">
+    <h3>Subscribe to our new collections</h3>
+    <p>Sign up to keep up to date with the latest collections and updates from Maheen Dawood Studio.</p>
+    <div class="newsletter-form"><input type="email" id="newsletterEmail" placeholder="Your email address"><button onclick="subscribeNewsletter()">Submit</button></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-links"><a href="#">ABOUT US</a><a href="#">RETURN POLICY</a><a href="#">PRIVACY POLICY</a><a href="#">SHIPPING POLICY</a><a href="#">CONTACT</a></div>
+    <div class="footer-social"><a href="#">f</a><a href="#">○</a></div>
+    <div class="footer-copyright">© 2026 Flairs Studio. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="flairs-cart.js"></script>
+<script src="Luxury_Pret.js"></script>
+</body>
+</html>
