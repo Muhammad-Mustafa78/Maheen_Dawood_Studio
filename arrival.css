@@ -32,7 +32,15 @@ body {
   font-family: 'Jost', sans-serif;
   overflow-x: hidden;
 }
-
+.mobile-menu{position:fixed;inset:0;background:var(--white);z-index:400;transform:translateX(-100%);transition:transform .45s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;padding:2rem;overflow-y:auto}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:3rem}
+.mobile-menu-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;letter-spacing:.15em;text-transform:uppercase}
+.mobile-menu-close{background:none;border:none;cursor:none;font-size:1.4rem;color:var(--dark)}
+.mobile-nav-link{display:block;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--black);text-decoration:none;letter-spacing:.04em;padding:.6rem 0;border-bottom:1px solid var(--border);transition:color .2s,padding-left .2s}
+.mobile-nav-link:hover{color:var(--accent2);padding-left:.5rem}
+.mobile-hamburger{display:none;background:none;border:none;cursor:none;padding:.25rem;flex-direction:column;gap:5px}
+.mobile-hamburger span{width:22px;height:1.5px;background:var(--dark);display:block;transition:all .3s}
 /* Announcement Bar */
 .announce-bar {
   background: var(--black);
