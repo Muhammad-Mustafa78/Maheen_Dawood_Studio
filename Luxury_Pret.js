@@ -135,6 +135,15 @@ function buildAnnounce() {
     track.appendChild(span);
   });
 }
+// ============ MOBILE MENU ============
+function openMobileMenu(){
+  document.getElementById('mobileMenu').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
 // ============ NEWSLETTER ============
 function subscribeNewsletter() {
